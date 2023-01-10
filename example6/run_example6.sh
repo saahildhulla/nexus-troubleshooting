@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # ensure we're using the control plane k8s context
-# k config use-context
+k config use-context
 
 # get vault token
 token=$(kubectl get secret -n domino-platform vault-bank-vaults -ojson | jq -r '.data."vault-root"' | base64 -d)
