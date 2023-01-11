@@ -15,6 +15,7 @@ kubectl delete po -n domino-platform vault-0
 sleep 2
 
 # exec into vault, revoke secretId or delete approle altogether
+# TODO -- make sure we have the right API call here (currently is wrong)
 kubectl exec -it -n domino-platform vault-0 -- sh -c 'vault write -f auth/data-plane/approle/role/data-plane-000000000000000000000000/secret-id'
 
 echo "Example 6 is set up!"
