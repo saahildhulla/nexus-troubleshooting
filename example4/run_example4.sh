@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -e
+
 # ensure we're using the control plane context
 kubectl config use-context $CP_KUBE_CONTEXT
 

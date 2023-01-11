@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -e
+
 # ensure we're using the data plane context
 kubectl config use-context $DP_KUBE_CONTEXT
 

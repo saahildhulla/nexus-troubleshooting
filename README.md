@@ -12,9 +12,9 @@ The structure of each example is as follows:
 
 Prerequisites:
 * Ensure you have the following environment variables saved and correctly defined:
-    * $CP_DEPLOY_CONTEXT -- this should be the kubernetes context for your control plane deployment
+    * $CP_KUBE_CONTEXT -- this should be the kubernetes context for your control plane deployment
         * To connect to your control plane deployment, you can use `teleport`
         * Then, run `export $CP_KUBE_CONTEXT=$(kubectl config current-context)`
-    * $DP_DEPLOY_CONTEXT -- this should be the kubernetes context for your data plane deployment
+    * $DP_KUBE_CONTEXT -- this should be the kubernetes context for your data plane deployment
         * To connect to your data plane deployment, reference [this article](https://dominodatalab.atlassian.net/wiki/spaces/ENG/pages/2377580581/kubectl+Access+Notes#dev-cdk-eks%2C-prod-cdk-eks%2C-dev-cdk-eks-dataplane)
         * Once you've got connection, run `export $DP_KUBE_CONTEXT=$(kubectl config current-context)`

@@ -12,10 +12,10 @@ kubectl set env statefulset vault -n domino-platform VAULT_TOKEN=$token
 kubectl delete po -n domino-platform vault-0
 
 # give it enough time to come back up
-sleep 2
+sleep 5
 
-# exec into vault, revoke secretId or delete approle altogether
-# TODO -- make sure we have the right API call here (currently is wrong)
-kubectl exec -it -n domino-platform vault-0 -- sh -c 'vault write -f auth/data-plane/approle/role/data-plane-000000000000000000000000/secret-id'
+# exec into vault, revoke secretId
+secret_id_accessor=$(kubectl exec -it -n domino-platform vault-0 -- sh -c "vault list -format=json auth/data-plane/approle/role/data-plane-000000000000000000000000/secret-id" | jq -r '.[]')
+kubectl exec -it -n domino-platform vault-0 -- sh -c "vault write -f auth/data-plane/approle/role/data-plane-000000000000000000000000/secret-id-accessor/destroy --secret_id_accessor=$secret_id_accessor"
 
 echo "Example 6 is set up!"

@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -e
+
 echo "Reverting example 1!"
 
 # ensure we're using the control plane context
