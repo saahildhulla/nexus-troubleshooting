@@ -1,5 +1,5 @@
 Example 6 -- 
 
-Your admin was tinkering with some things, and accidentally revoked something that the data-plane-agent needs to work properly. What did they do, and how can we remediate?
+There was some scheduled maintenance/downtime over the weekend, and now the Data Plane is unhealthy. How can we remediate?
 
 Set up this example by running `run_example6.sh`

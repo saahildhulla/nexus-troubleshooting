@@ -1,5 +1,5 @@
 Example 5 -- 
 
-The Remote Data Plane can no longer communicate with Vault because the admin deleted a secret. What did they delete, and how can we remediate?
+Customer tried to install data plane and it failed. Why did this happen, and how can we remediate this?
 
 Set up this example by running `run_example5.sh`

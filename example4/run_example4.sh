@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # ensure we're using the control plane context
-kubectl config use-context $DEPLOY_ID
+kubectl config use-context $CP_KUBE_CONTEXT
 
 # nuke rabbit
 kubectl scale statefulset -n domino-platform rabbitmq-ha-39 --replicas=0

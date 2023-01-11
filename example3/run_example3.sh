@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# ensure we're using the control plane context
+kubectl config use-context $CP_KUBE_CONTEXT
+
 # get rabbit credentials
 username=rabbitmq
 password=$(kubectl get secret -n domino-platform rabbitmq-ha.rabbitmq -ojsonpath={".data.rabbitmq-password"} | base64 -d )
