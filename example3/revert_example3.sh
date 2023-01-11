@@ -2,8 +2,6 @@
 
 set -e
 
-echo "Setting up example 3!"
-
 # ensure we're using the control plane context
 kubectl config use-context $CP_KUBE_CONTEXT
 
@@ -13,7 +11,7 @@ kubectl -n domino-platform patch service rabbitmq-ha-external --type merge -p \
             [
                 {
                     "name": "amqp",
-                    "port": 5671,
+                    "port": 5672,
                     "nodePort": 32000,
                     "targetPort": "amqp",
                     "protocol": "TCP"
@@ -28,5 +26,7 @@ kubectl -n domino-platform patch service rabbitmq-ha-external --type merge -p \
             ] 
         } 
     }'
+
+kubectl rollout restart statefulset/rabbitmq-ha-39 -n domino-platform
 
 echo "Example 3 is set up!"

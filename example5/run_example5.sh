@@ -10,5 +10,6 @@ namespace=$(kubectl get secret -A | grep agent-app-role | awk '{print $1;}')
 
 # delete agent-app-role secret
 kubectl delete secret -n $namespace agent-app-role
+kubectl rollout restart deployment/data-plane-agent -n $namespace
 
 echo "Example 5 is set up!"
