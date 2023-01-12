@@ -17,7 +17,6 @@ sleep 5
 secret_id_accessor=$(kubectl exec -it -n domino-platform vault-0 -- sh -c "vault list -format=json auth/data-plane/approle/role/data-plane-000000000000000000000000/secret-id" | jq -r '.[]')
 echo $secret_id_accessor
 
-# loop over all results returned, just in case
 kubectl exec -it -n domino-platform vault-0 -- sh -c "vault write -f auth/data-plane/approle/role/data-plane-000000000000000000000000/secret-id-accessor/destroy secret_id_accessor=$secret_id_accessor"
 kubectl rollout restart deployment/data-plane-agent -n domino-compute
 
